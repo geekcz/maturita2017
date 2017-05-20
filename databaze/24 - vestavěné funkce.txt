@@ -1,0 +1,84 @@
+24. Výpis dat, vestavěné funkce a jejich použití
+    Řazení výsledků, vytváření podmínek pro výběr dat, seskupování dat
+    Matematické funkce, práce s řetězci, s datumem a časem, logické a agregační
+    
+    
+    Popište možnosti příkazu SELECT. Uveďte příklady matematických funkcí, funkce pro práci
+    s textovými řetězci, formátování datumu a času, logické funkce. Vysvětlete agregační funkce
+    a seskupování dat.
+    
+    
+    SELECT je zčásti vysvětlen v předchozí otázce - takže se to hodně duplikuje - můžete říct to stejné ve 2 otázkách.
+    
+    Vypsání článků
+        SELECT clanek.id as clanek_id, clanek.nadpis, clanek.text, clanek.datum FROM clanek    
+
+        // clanek. není nutné psát, ale pokud chceme spojovat tabulky, tak u sloupců, které se jmenují stejně ve dvou tabulkách, tak to musíme takto odlišit - zjednudušeně - nic nezkazíte, pokud budete při propojování tabulek psát vždycky 'název tabulky'.'název sloupce'
+        
+
+    Řazení výsledků - pomocí ORDER BY
+    
+        SELECT clanek.id as clanek_id, clanek.nadpis, clanek.text, clanek.datum FROM clanek ORDER BY clanek.datum DESC
+    
+        jsou dvě možnosti - ASC a DESC
+    
+    
+    vytváření podmínek pro výběr dat - pomocí where
+        SELECT clanek.id as clanek_id, clanek.nadpis, clanek.text, clanek.datum FROM clanek WHERE clanek.shlednuti>100 ORDER BY clanek.datum DESC
+
+        V tomto příkazu jsem přidal podmínku, že články, které se vypíší musí mít více než 100 shlednuti
+
+        Druhý příklad
+        SELECT clanek.id as clanek_id, clanek.nadpis, clanek.text, clanek.datum FROM clanek WHERE clanek.autor='25' ORDER BY clanek.datum DESC
+        
+        
+    seskupování dat - group by
+        SELECT COUNT(id_zakaznika), zeme
+        FROM zakaznici
+        GROUP BY zeme;
+        
+        
+    Matematické funkce - agregační
+    
+        COUNT - počet
+            SELECT COUNT(id) as pocet FROM `clanek_komentare`
+            
+            
+        SUM - součet číšel
+            SELECT SUM(id) as pocet FROM `clanek_komentare`
+                // tento příkaze nedává smysl - sečíst id článků je naprostá blbost, jen ukazuji syntaxi, která je snad jasná
+                
+        AVG(sloupec) - průměr
+        
+        MIN(sloupec) - nejmenší výsledek
+        
+        MAX(sloupec) - největší výsledek
+        
+        
+  
+  
+        DATUM - to je asi jasné - vždy je ve formátu 2017-05-20 11:09:25 (datetime), nebo může být i kratší, ale to známe
+        
+        Aktuální čas v databázi zjistíme příkazem:
+        SELECT now()
+        
+        funkci now() lze také použít při vkládání záznamů (třeba když vytvářím článek a chci vložit čas vytvoření)
+        
+        
+        
+        
+        
+        CONTAT - tohle je z netu, přečíst si o tom můžete zde - https://www.interval.cz/clanky/sql-jak-na-funkce/
+        
+
+        SELECT příjmení+‘, ‚+jméno AS „Celé jméno“
+        FROM lidé
+        SELECT CONCAT(příjmení, CONCAT (‚, ‚, jméno)) AS „Celé jméno“
+        FROM lidé
+            
+    
+    
+    
+    
+    
+    
