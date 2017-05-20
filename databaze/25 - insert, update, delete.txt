@@ -1,0 +1,62 @@
+25. Základy SQL příkazů, přidávání, úprava a odstranění dat
+    
+    Popište syntaxi příkazů INSERT, UPDATE a DELETE, TRUNCATE, DROP.
+
+    INSERT - používá se pro vkládání dat do db
+INSERT INTO `clanky`(`id_uzivatele`, `nadpis`) VALUES ('12', 'Nový článek o štěstíčku při maturitě');
+    nebo (tyto ` se nemusí psát; píší se v případě, že se by se nějaký sloupec v db jmenoval třeba `Jméno třídy`)
+INSERT INTO clanky(id_uzivatele, nadpis) VALUES ('12', 'Nový článek o štěstíčku při maturitě');
+
+    Napíšeme, INSERT INTO pak následuje jméno tabulky
+    Do závorek napíšeme sloupce, do kterých chceme data vložit (nemusíme psát všechny sloupce v tabulce, jen ty, do kterých chceme vkládat)
+    VALUES
+    (a do 'sem' se vkládají data)
+    
+    
+    UPDATE - editace záznamu
+UPDATE `clanky` SET `nadpis` = 'Druhý článek o zbytečnosti společenských věd na SPŠE' WHERE `clanky`.`id` = 2;
+
+    V předchozím příkazu jsme editovali nadpis článku, který má ID 2 (co je ID, entita, apod. si můžete přečíst v pdf souboru ve této složce)
+    
+    UPDATE
+        následuje název tabulky
+    SET
+        teď napíšeme sloupce, které chceme editovat (takže třeba nadpis a datum zveřejnění článku (může to být i víc věcí, cože je asi jasný))
+    WHERE 
+        teď potřebujeme určit, u kterého záznamu, takže ho můžeme identifokovat pomocí id
+    clanky.id=2
+    
+Druhý příkad s update
+UPDATE `clanky` SET `nadpis` = 'Virtual rabbids', `text` = 'Ubisoft oznámil novou hru ve virtuální realitě s názvem Virtual Rabbids: The Big plan. Ve Virtual Rabbids budou hráči vystupovat jako agenti utajované vládní agentury, která má za úkol dopadnout neuvtivé králíčky, kteří ukradli heslo k nukleárním informacím.', `datum` = '2017-02-28 00:20:00' WHERE `clanky`.`id` = 1;
+
+
+DELETE - smazání záznamu
+    DELETE FROM `clanky` WHERE `clanky`.`id` = 4
+    
+    DELETE FROM
+        název tabulky
+    WHERE
+        potřebujeme záznam identifikovat, takže využijeme id
+    
+    
+
+TRUNCATE - slouží k vyprázdnění tabulky (ne smazání sloupců, ale smazání řádků)
+
+    TRUNCATE komentare
+    Napíšeme TRUNCATE
+    a pak už jen název tabulky
+    
+DROP - slouží k odstranění tabulky
+
+    DROP TABLE clanky
+    
+    DROP TABLE a název tabulky
+    
+DROP DATABASES - slouží k odstranění db
+
+    DROP DATABASES ukazkova_db
+    
+    
+    
+    
+    
