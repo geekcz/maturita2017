@@ -1,0 +1,6 @@
+21. Návrh databáze
+    Základní databázové pojmy, entity a atributy, datové typy
+
+// doporučuju si proběhnot PDFko - Základy sql
+// moc toho o této otázce nejde napsat, spíš si něco přečtěte na netu, ale datové typy snad každý zná :)
+// Duležité je vědět rozdíl mezi VARCHAR a TEXT, co je INT, BOOLEAN, apod - to známe z PHPka 
