@@ -1,0 +1,27 @@
+23. Relace
+    Spojování více tabulek, klauzule join a její vlastnosti
+    
+    // tohle si chci vatáhnout, to mě baví :)
+    // takhle otázka je obsahem zčásti i u další
+    
+    Příklad:
+        chci si vypsat uživatele a k nim články, které napsali
+            SELECT users.id, users.jmeno, users.prijmeni FROM users
+                // tohle musí být jasný, bez toho se nehneme dál
+                // protože je možné, že někdo napsal, ale taky nenapsal článek (tedy 0-x), tak použijeme LEFT JOIN
+                
+            SELECT users.id, users.jmeno, users.prijmeni, clanky.id as id_clanku, clanky.nadpis, clanky.text, clanky.datum FROM users LEFT JOIN clanky ON users.id=clanky.pridal    
+            
+            SELECT
+                napíšu všechny položky, které mě zajímají (tam, kde jsou názvy sloupců duplicitní, přidám 'alias'... prostě napíšu clanky.id AS a nějak to pojmenuju)
+            FROM
+                první tabulka
+            LEFT JOIN
+                druhá tabulka
+            ON
+                podmínka, které spojí sloupec v jedné tabulkce se sloupcem v druhé tabulce
+                (v tomto případě spojíme id uživatele z tabulky uživatelů s id uživatelem, který přidal článek)
+                
+        // tohle je takovej základ, jdu pryč, až se vrátím domů, třeba t o rozšířím :)        
+            
+                
