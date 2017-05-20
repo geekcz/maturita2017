@@ -1,0 +1,3 @@
+22. Normalizace dat
+// doporučuju si proběhnot PDFko - Základy sql
+// na konci je vysvětleno, co je primární a unikátní, ...
